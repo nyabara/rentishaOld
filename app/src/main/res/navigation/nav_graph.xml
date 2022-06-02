@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/houseSearchFragment"
+        android:name="com.example.rentisha.ui.HouseSearchFragment"
+        android:label="Search for a place"
+        tools:layout="@layout/fragment_house_search" />
+    <fragment
+        android:id="@+id/houseDetailFragment"
+        android:name="com.example.rentisha.ui.HouseDetailFragment"
+        android:label="House Details"
+        tools:layout="@layout/fragment_house_detail">
+        <argument
+            android:name="uid"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_houseDetailFragment_to_addHouseFragment"
+            app:destination="@id/addHouseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.rentisha.ui.LoginFragment"
+        android:label="Rentisha" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_houseListFragment"
+            app:destination="@id/houseListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.rentisha.ui.RegistrationFragment"
+        android:label="Registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/houseListFragment"
+        android:name="com.example.rentisha.ui.HouseListFragment"
+        android:label="Houses">
+        <action
+            android:id="@+id/action_houseListFragment_to_houseDetailFragment"
+            app:destination="@id/houseDetailFragment" />
+        <action
+            android:id="@+id/action_houseListFragment_to_addHouseFragment"
+            app:destination="@id/addHouseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addHouseFragment"
+        android:name="com.example.rentisha.ui.AddHouseFragment"
+        android:label="Add House"
+        tools:layout="@layout/fragment_add_house">
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_addHouseFragment_to_houseListFragment"
+            app:destination="@id/houseListFragment"
+            app:popUpTo="@id/houseListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

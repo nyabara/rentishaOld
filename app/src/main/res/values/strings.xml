@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Rentisha</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_switch_layout">Switch Layout</string>
+    <string name="place_search">Search For Place</string>
+    <string name="searchButton">search</string>
+    <string name="map_id">4d4691a630798618</string>
+
+    <string name="house_name">Name</string>
+    <string name="house_location">Location</string>
+    <string name="available">Has vacancy</string>
+    <string name="booked">Rented</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="welcome">Welcome</string>
+    <string name="user_email">email</string>
+    <string name="Login">Login</string>
+    <string name="Become_a_member">Become a member? Click here.</string>
+    <string name="house_url">url</string>
+    <string name="house_title">Title</string>
+    <string name="house_thumbnail">thumbnail</string>
+    <string name="house_updated">updated</string>
+</resources>

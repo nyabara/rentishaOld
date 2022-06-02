@@ -1,0 +1,843 @@
+[
+    {
+        "geometry": {
+            "location": {
+                "lat": 0.5727976,
+                "lng": 34.5581952
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 0.5688760000000112,
+                    "lng": 34.561272
+                },
+                "southwest": {
+                    "lat": 0.5688760000000112,
+                    "lng": 34.571272
+                }
+            }
+        },
+        "name": "Moi Ave, Bungoma",
+        "rating": 4.2,
+        "vicinity": "Hunters Paradise Cottage",
+        "houseid": "Cosy Two Bedroom",
+        "housedescription": "Cosy Two bedroom house in Bungoma, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "45,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": 0.5727976,
+                "lng": 34.5581952
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 0.5688760000000112,
+                    "lng": 34.561272
+                },
+                "southwest": {
+                    "lat": 0.5688760000000112,
+                    "lng": 34.571272
+                }
+            }
+        },
+        "name": "Moi Ave, Bungoma",
+        "rating": 4.2,
+        "vicinity": "Hunters Paradise Cottage",
+        "houseid": "Cosy Two Bedroom",
+        "housedescription": "Cosy Two bedroom house in Bungoma, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "45,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": -0.3158116,
+                "lng": 36.0088198
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -0.3058116,
+                    "lng": 36.0188198
+                },
+                "southwest": {
+                    "lat": -0.3058116,
+                    "lng": 36.0288198
+                }
+            }
+        },
+        "name": "Sarova Woodlands Hotel & Spa Nakuru",
+        "rating": 4.6,
+        "vicinity": "4-star hote",
+        "houseid": "Sarova Woodlands Hotel",
+        "housedescription": "Sarova Woodlands Hotel  in Nakuru, Kenya. Apartment is located in 980 m from the centre",
+        "houseprice": "100,000/Month"
+    }
+
+]
