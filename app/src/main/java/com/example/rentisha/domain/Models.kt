@@ -1,6 +1,7 @@
 package com.example.rentisha.domain
 
 import com.example.rentisha.util.smartTruncate
+import com.squareup.moshi.Json
 
 /**
  * Domain objects are plain Kotlin data classes that represent the things in our app. These are the
@@ -30,11 +31,11 @@ data class House(val id:Long,
         get() = description.smartTruncate(200)
 }
 
-data class Tenant(
-    val firstname: String,
-    val middlename: String,
-    val sirname: String,
-    val email: String,
-    val phone: String,
-    val password: String
+data class Renter(
+    @Json(name = "firstname") val firstname: String,
+    @Json(name = "middlename") val middlename: String,
+    @Json(name = "surname") val surname: String,
+    @Json(name = "email") val email: String,
+    @Json(name = "phone") val phone: String,
+    @Json (name = "password") val password: String
 )

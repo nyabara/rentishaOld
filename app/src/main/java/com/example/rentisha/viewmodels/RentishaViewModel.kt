@@ -5,6 +5,7 @@ import com.example.rentisha.BaseApplication
 import com.example.rentisha.database.DatabaseHouse
 import com.example.rentisha.database.HouseDatabase.Companion.getDatabase
 import com.example.rentisha.domain.House
+import com.example.rentisha.domain.Renter
 import com.example.rentisha.repository.HouseRepository
 import kotlinx.coroutines.launch
 import java.io.IOException
@@ -137,6 +138,26 @@ class RentishaViewModel(application: BaseApplication) : AndroidViewModel(applica
         }
 
     }
+    fun addRenter(
+        firstname: String,
+        middlename: String,
+        surname: String,
+        email: String,
+        phone: String,
+        password: String){
+
+        val renter =Renter(
+            firstname = firstname,
+            middlename = middlename,
+            surname = surname,
+            email = email,
+            phone = phone,
+            password = password
+        )
+        viewModelScope.launch {
+            houseRepository.addRenter(renter)
+        }
+    }
 
     fun updateHouse(
         id:Long,
@@ -175,6 +196,10 @@ class RentishaViewModel(application: BaseApplication) : AndroidViewModel(applica
 
     fun isValidEntry(name: String, address: String): Boolean {
         return name.isNotBlank() && address.isNotBlank()
+    }
+
+    fun isValidUser(email: String, phone: String): Boolean {
+        return email.isNotBlank() && phone.isNotBlank()
     }
 
 

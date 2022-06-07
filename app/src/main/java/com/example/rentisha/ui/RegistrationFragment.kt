@@ -9,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.rentisha.BaseApplication
 import com.example.rentisha.R
-import com.example.rentisha.databinding.FragmentLoginBinding
 import com.example.rentisha.databinding.FragmentRegistrationBinding
+import com.example.rentisha.viewmodels.RentishaViewModel
 
 class RegistrationFragment : Fragment() {
     private var _binding: FragmentRegistrationBinding? = null
@@ -23,6 +25,14 @@ class RegistrationFragment : Fragment() {
     private lateinit var textEmail: EditText
     private lateinit var textPhone: EditText
     private lateinit var textPassword: EditText
+
+    private val viewModel: RentishaViewModel by lazy {
+        val activity = requireNotNull(this.activity) {
+            "You can only access the viewModel after onActivityCreated()"
+        }
+        ViewModelProvider(this, RentishaViewModel.Factory(activity?.application as BaseApplication))
+            .get(RentishaViewModel::class.java)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,8 +79,28 @@ class RegistrationFragment : Fragment() {
      */
 
     fun goToLoginScreen(){
-        findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
+        addRenter()
+
     }
+
+    private fun addRenter() {
+        if (isValidUser()) {
+            viewModel.addRenter(
+                textFirstName.text.toString(),
+               textMiddleName.text.toString(),
+               textSirName.text.toString(),
+               textEmail.text.toString(),
+               textPhone.text.toString(),
+                textPassword.toString()
+            )
+            findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
+        }
+    }
+    private fun isValidUser() = viewModel.isValidUser(
+        textEmail.text.toString(),
+        textPhone.text.toString()
+    )
+
 
     private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
