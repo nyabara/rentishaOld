@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.HouseSearchFragment">
+    tools:context=".ui.searchtypes.HouseSearchFragment">
     <ImageView
         android:id="@+id/icon_place_of_search"
         android:layout_width="wrap_content"

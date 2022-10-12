@@ -10,7 +10,7 @@
             type="com.example.rentisha.viewmodels.RentishaViewModel" />
         <variable
             name="registrationFragment"
-            type="com.example.rentisha.ui.RegistrationFragment" />
+            type="com.example.rentisha.ui.profile.RegistrationFragment" />
 
     </data>
 
@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="16dp"
-            tools:context=".ui.RegistrationFragment">
+            tools:context=".ui.profile.RegistrationFragment">
 
             <!-- TODO: Update blank fragment layout -->
             <ImageView
@@ -132,16 +132,33 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/login_button"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:text="Register"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/password_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"
-                android:onClick="@{()-> registrationFragment.goToLoginScreen()}"
-                app:layout_constraintStart_toStartOf="@id/password_text"
-                app:layout_constraintTop_toBottomOf="@id/password_text" />
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/save_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:layout_marginEnd="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/delete_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/delete"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

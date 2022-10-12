@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/houseSearchFragment"
-        android:name="com.example.rentisha.ui.HouseSearchFragment"
+        android:name="com.example.rentisha.ui.searchtypes.HouseSearchFragment"
         android:label="Search for a place"
         tools:layout="@layout/fragment_house_search" />
     <fragment
@@ -17,15 +17,17 @@
         tools:layout="@layout/fragment_house_detail">
         <argument
             android:name="uid"
-            app:argType="long" />
+            app:argType="integer" />
         <action
             android:id="@+id/action_houseDetailFragment_to_addHouseFragment"
             app:destination="@id/addHouseFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.rentisha.ui.LoginFragment"
-        android:label="Rentisha" >
+        android:name="com.example.rentisha.ui.profile.LoginFragment"
+        android:label="Rentisha"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
@@ -33,40 +35,86 @@
             android:id="@+id/action_loginFragment_to_houseListFragment"
             app:destination="@id/houseListFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.example.rentisha.ui.RegistrationFragment"
-        android:label="Registration" >
+        android:name="com.example.rentisha.ui.profile.RegistrationFragment"
+        android:label="Registration"
+        tools:layout="@layout/fragment_registration">
         <action
             android:id="@+id/action_registrationFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
+
     <fragment
         android:id="@+id/houseListFragment"
         android:name="com.example.rentisha.ui.HouseListFragment"
-        android:label="Houses">
+        android:label="Houses"
+        tools:layout="@layout/fragment_house_list">
         <action
             android:id="@+id/action_houseListFragment_to_houseDetailFragment"
             app:destination="@id/houseDetailFragment" />
         <action
             android:id="@+id/action_houseListFragment_to_addHouseFragment"
             app:destination="@id/addHouseFragment" />
+        <action
+            android:id="@+id/action_houseListFragment_to_profileDetailFragment"
+            app:destination="@id/profileDetailFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/addHouseFragment"
         android:name="com.example.rentisha.ui.AddHouseFragment"
-        android:label="Add House"
+        android:label="{title}"
         tools:layout="@layout/fragment_add_house">
         <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
             android:name="id"
-            app:argType="long"
-            android:defaultValue="0L" />
+            app:argType="integer"
+            android:defaultValue="0" />
         <action
             android:id="@+id/action_addHouseFragment_to_houseListFragment"
             app:destination="@id/houseListFragment"
             app:popUpTo="@id/houseListFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_addHouseFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+        <argument
+            android:name="latitude"
+            app:argType="float"
+            android:defaultValue="0.00" />
+        <argument
+            android:name="longitude"
+            app:argType="float"
+            android:defaultValue="0.00" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileDetailFragment"
+        android:name="com.example.rentisha.ui.profile.ProfileDetailFragment"
+        android:label="ProfileDetailFragment"
+        tools:layout="@layout/fragment_profile_detail">
+        <action
+            android:id="@+id/action_profileDetailFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.rentisha.ui.location.MapFragment"
+        android:label="MapFragment"
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_mapFragment_to_addHouseFragment"
+            app:destination="@id/addHouseFragment"
+            app:popUpTo="@id/addHouseFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

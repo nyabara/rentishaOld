@@ -7,11 +7,15 @@
 
         <variable
             name="house"
-            type="com.example.rentisha.domain.House" />
+            type="com.example.rentisha.database.DatabaseHouse" />
 
         <variable
             name="clickListener"
             type="com.example.rentisha.ui.HouseListener" />
+        <variable
+            name="viewModel"
+            type="com.example.rentisha.viewmodels.RentishaViewModel" />
+
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -47,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 app:layout_constraintStart_toStartOf="@+id/left_well"
-                app:layout_constraintTop_toBottomOf="@+id/video_thumbnail"
+                app:layout_constraintTop_toBottomOf="@+id/child_rv"
                 app:srcCompat="@drawable/ic_play_circle_outline_black_48dp" />
 
             <TextView
@@ -56,14 +60,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
-                android:text="@{house.title}"
+                android:text="@{house.house_type}"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="@color/text_black"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/right_well"
                 app:layout_constraintStart_toEndOf="@+id/play_icon"
-                app:layout_constraintTop_toBottomOf="@+id/video_thumbnail"
+                app:layout_constraintTop_toBottomOf="@+id/child_rv"
                 tools:text="house title" />
 
 
@@ -73,41 +77,42 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
-                android:text="@{house.shortDescription}"
+                android:text="@{house.other_description}"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="@color/text_light"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/right_well"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintEnd_toStartOf="@+id/edit_icon"
                 app:layout_constraintStart_toStartOf="@+id/left_well"
                 app:layout_constraintTop_toBottomOf="@+id/title"
                 app:layout_constraintBottom_toBottomOf="parent"
                 tools:text="this is a video @android:string/fingerprint_icon_content_description" />
-
             <ImageView
-                android:id="@+id/video_thumbnail"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:adjustViewBounds="false"
-                android:cropToPadding="false"
-                android:scaleType="centerCrop"
-                app:imageUrl="@{house.thumbnail}"
-                app:layout_constraintDimensionRatio="h,4:3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-            <View
-                android:id="@+id/clickableOverlay"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:id="@+id/edit_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:background="?attr/selectableItemBackground"
                 android:onClick="@{() -> clickListener.onClick(house)}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/description"
+                app:layout_constraintEnd_toEndOf="@+id/right_well"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:srcCompat="@drawable/ic_edit" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/child_rv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="h,4:3"
+                app:layout_constraintEnd_toEndOf="@+id/right_well"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/left_well"
+                app:layout_constraintTop_toTopOf="parent"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>

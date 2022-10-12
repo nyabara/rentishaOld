@@ -1,4 +1,4 @@
-package com.example.rentisha.ui
+package com.example.rentisha.ui.searchtypes
 
 import android.content.Context
 import android.os.Bundle
@@ -73,7 +73,7 @@ class HouseSearchFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.layout_menu, menu)
 
-        val layoutButton = menu.findItem(R.id.action_switch_layout)
+        val layoutButton = menu.findItem(R.id.action_profile)
         setIcon(layoutButton)
     }
 
@@ -89,7 +89,7 @@ class HouseSearchFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_switch_layout -> {
+            R.id.action_profile-> {
 //                isLinearLayoutManager = !isLinearLayoutManager
 //                chooseLayout()
 //                setIcon(item)

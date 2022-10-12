@@ -1,4 +1,4 @@
-package com.example.rentisha.ui
+package com.example.rentisha.ui.profile
 
 import android.content.Context
 import android.os.Bundle
@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.rentisha.R
 import com.example.rentisha.databinding.FragmentLoginBinding

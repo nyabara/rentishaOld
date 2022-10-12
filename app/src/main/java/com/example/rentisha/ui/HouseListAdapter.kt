@@ -1,21 +1,32 @@
 package com.example.rentisha.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rentisha.databinding.ListItemBinding
-import com.example.rentisha.domain.House
+import com.example.rentisha.database.DatabaseHouse
+import com.example.rentisha.database.DatabaseImage
+import com.example.rentisha.viewmodels.RentishaViewModel
+import com.example.rentisha.viewmodels.UiModel
 
-class HouseListAdapter(val clickListener:HouseListener):
-    ListAdapter<House, HouseListAdapter.HouseViewHolder>(DiffCallback) {
+
+class HouseListAdapter(val clickListener: HouseListener, val viewmodel:RentishaViewModel):
+    PagingDataAdapter<UiModel, HouseListAdapter.HouseViewHolder>(DiffCallback) {
 
     class HouseViewHolder(val binding:ListItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(clickListener: HouseListener,house: House){
+        fun bind(clickListener: HouseListener, house: DatabaseHouse, imageList:List<DatabaseImage>){
             binding.house= house
+            Log.d("huse",house.toString())
             binding.clickListener= clickListener
+            val childRecyclerViewAdapter = ChildRecyclerViewAdapter()
+            binding.childRv.layoutManager = LinearLayoutManager(binding.root.context,LinearLayoutManager.HORIZONTAL,false)
+            binding.childRv.adapter = childRecyclerViewAdapter
+            childRecyclerViewAdapter.submitList(imageList)
             binding.executePendingBindings()
         }
     }
@@ -28,16 +39,41 @@ class HouseListAdapter(val clickListener:HouseListener):
     }
 
     override fun onBindViewHolder(holder: HouseViewHolder, position: Int) {
-        val house = getItem(position)
-        holder.bind(clickListener, house)
-    }
-    companion object DiffCallback : DiffUtil.ItemCallback<House>() {
+        val uiModel = getItem(position)
 
-        override fun areItemsTheSame(oldItem: House, newItem: House): Boolean {
+
+        uiModel.let {
+            when(uiModel){
+
+                is UiModel.HouseItem -> {
+                    holder
+                        .bind(clickListener,uiModel.house,viewmodel.getHouseImages(uiModel.house.houseId))
+                    Log.d("uimodel",uiModel.house.toString())
+
+                }
+
+                else -> {
+                    Log.d("EmptyData","emptydata")
+                }
+            }
+        }
+
+
+//
+//        if (house != null) {
+//            val imagelist =viewmodel.getHouseImages(house.houseId)
+//            Log.d("imagelistrec",imagelist.toString())
+//            holder.bind(clickListener, house,imagelist)
+//
+//        }
+    }
+    companion object DiffCallback : DiffUtil.ItemCallback<UiModel>() {
+
+        override fun areItemsTheSame(oldItem: UiModel, newItem: UiModel): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: House, newItem: House): Boolean {
+        override fun areContentsTheSame(oldItem: UiModel, newItem: UiModel): Boolean {
             return oldItem == newItem
         }
 
@@ -45,6 +81,6 @@ class HouseListAdapter(val clickListener:HouseListener):
 }
 
 
-class HouseListener(val clickListener: (house: House) ->Unit) {
-    fun onClick(house: House) = clickListener(house)
+class HouseListener(val clickListener: (house: DatabaseHouse) ->Unit) {
+    fun onClick(house: DatabaseHouse) = clickListener(house)
 }

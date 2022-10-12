@@ -4,6 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="action_switch_layout">Switch Layout</string>
+    <string name="action_profile">Profile</string>
     <string name="place_search">Search For Place</string>
     <string name="searchButton">search</string>
     <string name="map_id">4d4691a630798618</string>
@@ -12,15 +13,44 @@
     <string name="house_location">Location</string>
     <string name="available">Has vacancy</string>
     <string name="booked">Rented</string>
-    <string name="description">Description</string>
+    <string name="electricity_description">Electricity Description</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="welcome">Welcome</string>
     <string name="user_email">email</string>
     <string name="Login">Login</string>
     <string name="Become_a_member">Become a member? Click here.</string>
-    <string name="house_url">url</string>
+    <string name="other_description">Other Description</string>
     <string name="house_title">Title</string>
     <string name="house_thumbnail">thumbnail</string>
     <string name="house_updated">updated</string>
+    <string name="car_parking">Car parking</string>
+    <string name="has_watchman">Watchman</string>
+    <string name="has_water">Water</string>
+    <string name="has_compound">Has Compound</string>
+    <string name="status">Status</string>
+    <string name="Activate">Activate</string>
+    <string name="Deactivate">Deactivate</string>
+    <string name="house_types">House Type</string>
+    <string name="electricity_types">Electricity Type</string>
+    <string name="add_fragment_title">Add House</string>
+    <string name="edit_fragment_title">Edit House</string>
+    <string name="retry">Retry</string>
+    <string name="no_results">No results 😓</string>
+
+    <!-- Events Demo -->
+    <string name="events_demo_label">Events</string>
+    <string name="events_demo_details">Demonstrates event handling.</string>
+    <string name="move_the_camera">Move the camera</string>
+    <string name="tap_instructions">Tap or long press on the map</string>
+
+    <!-- MyLocationDemo-->
+    <string name="my_location_demo_label">My Location Demo</string>
+    <string name="my_location_demo_details">Demonstrates how to use GMS Location.</string>
+
+    <!-- Permissions -->
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+    <string name="search_hint">Search by house type</string>
 </resources>

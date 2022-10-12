@@ -1,23 +1,29 @@
 package com.example.rentisha.ui
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
-import androidx.lifecycle.Observer
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.rentisha.BaseApplication
+import androidx.paging.LoadState
+import androidx.paging.PagingData
+import androidx.paging.map
+import androidx.recyclerview.widget.RecyclerView
+import com.example.rentisha.Injection
 import com.example.rentisha.R
+import com.example.rentisha.database.DatabaseHouse
 import com.example.rentisha.databinding.FragmentHouseListBinding
-import com.example.rentisha.databinding.FragmentHouseSearchBinding
-import com.example.rentisha.domain.House
 import com.example.rentisha.viewmodels.RentishaViewModel
-import com.google.android.material.snackbar.Snackbar
+import com.example.rentisha.viewmodels.UiAction
+import com.example.rentisha.viewmodels.UiModel
+import com.example.rentisha.viewmodels.UiState
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 
 class HouseListFragment : Fragment() {
@@ -30,7 +36,10 @@ class HouseListFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        ViewModelProvider(this, RentishaViewModel.Factory(activity?.application as BaseApplication))
+        ViewModelProvider(activity, Injection.provideViewModelFactory(
+            context = requireContext(),
+            owner = activity,
+        ))
             .get(RentishaViewModel::class.java)
     }
     private var _binding: FragmentHouseListBinding? = null
@@ -55,52 +64,210 @@ class HouseListFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-        val adapter = HouseListAdapter(HouseListener { house ->
-            viewModel.onHouseClicked(house)
-            //Toast.makeText(this,"$viewModel.place.toString()", Toast.LENGTH_SHORT).show()
+//        val adapter = HouseListAdapter(HouseListener { house ->
+//            viewModel.onHouseClicked(house)
+//
+//
+//            val action = HouseListFragmentDirections.actionHouseListFragmentToAddHouseFragment(getString(R.string.edit_fragment_title),house.houseId)
+//            this.findNavController().navigate(action)
+//
+//
+//
+//
+//        },viewModel)
+        // bind the state
+        binding.bindState(
+            uiState = viewModel.state,
+            pagingData = viewModel.pagingDataFlow,
+            uiActions = viewModel.accept
+        )
 
-//            Snackbar.make(binding.root, house.url, Snackbar.LENGTH_SHORT).show()
-            val action = HouseListFragmentDirections.actionHouseListFragmentToHouseDetailFragment(house.id)
-            this.findNavController().navigate(action)
-//            viewModel.house.observe(viewLifecycleOwner, Observer<House>() { house ->
-//                if (house!=null){
-//                    this.findNavController().navigate(R.id.action_houseListFragment_to_houseDetailFragment)
-//                }
-//            })
 
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            viewModel.houselist.collect {
+//                adapter.submitData(it)
+//                Log.d("articles","  Hello")
+//            }
+//        }
 
-
-
-        })
-        viewModel.houselist.observe(viewLifecycleOwner, Observer<List<House>> { houses ->
-            houses?.apply {
-                adapter.submitList(houses)
-            }
-        })
-        binding.recyclerView.adapter = adapter
+//        binding.recyclerView.adapter = adapter
         binding.addHouseFab.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_houseListFragment_to_addHouseFragment
-            )
+            val action =HouseListFragmentDirections.actionHouseListFragmentToAddHouseFragment(getString(R.string.add_fragment_title))
+            findNavController().navigate(action)
         }
-        binding.recyclerView.layoutManager = LinearLayoutManager(context)
-
-        // Observer for the network error.
-        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
-            if (isNetworkError) onNetworkError()
-        })
+        //binding.recyclerView.layoutManager = LinearLayoutManager(context)
         return view
     }
 
     /**
-     * Method for displaying a Toast error message for network errors.
+     * Binds the [UiState] provided  by the [SearchRepositoriesViewModel] to the UI,
+     * and allows the UI to feed back user actions to it.
      */
-    private fun onNetworkError() {
-        if(!viewModel.isNetworkErrorShown.value!!) {
-            Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
-            viewModel.onNetworkErrorShown()
+    private fun FragmentHouseListBinding.bindState(
+        uiState: StateFlow<UiState>,
+        pagingData: Flow<PagingData<UiModel>>,
+        uiActions: (UiAction) -> Unit
+    ) {
+        val houseListAdapter = HouseListAdapter(HouseListener { house ->
+            val action = HouseListFragmentDirections.
+            actionHouseListFragmentToAddHouseFragment(getString(R.string.edit_fragment_title),house.houseId)
+            findNavController().navigate(action)},viewModel!!)
+        val header = RentishaLoadStateAdapter { houseListAdapter.retry() }
+        recyclerView.adapter = houseListAdapter.withLoadStateHeaderAndFooter(
+            header = header,
+            footer = RentishaLoadStateAdapter { houseListAdapter.retry() }
+        )
+        bindSearch(
+            uiState = uiState,
+            onQueryChanged = uiActions
+        )
+
+        bindList(
+            header = header,
+            houselistAdapter = houseListAdapter,
+            uiState = uiState,
+            pagingData = pagingData,
+            onScrollChanged = uiActions
+        )
+    }
+
+    private fun FragmentHouseListBinding.bindSearch(
+        uiState: StateFlow<UiState>,
+        onQueryChanged: (UiAction.Search) -> Unit
+    ) {
+        searchHouse.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_GO) {
+                updateHouseListFromInput(onQueryChanged)
+                true
+            } else {
+                false
+            }
+        }
+        searchHouse.setOnKeyListener { _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                updateHouseListFromInput(onQueryChanged)
+                true
+            } else {
+                false
+            }
+        }
+
+        lifecycleScope.launch {
+            uiState
+                .map { it.query }
+                .distinctUntilChanged()
+                .collect(searchHouse::setText)
         }
     }
+
+    private fun FragmentHouseListBinding.updateHouseListFromInput(onQueryChanged: (UiAction.Search) -> Unit) {
+        searchHouse.text.trim().let {
+            if (it.isNotEmpty()) {
+                recyclerView.scrollToPosition(0)
+                onQueryChanged(UiAction.Search(query = it.toString()))
+            }
+        }
+    }
+
+    private fun FragmentHouseListBinding.bindList(
+        header: RentishaLoadStateAdapter,
+        houselistAdapter: HouseListAdapter,
+        uiState: StateFlow<UiState>,
+        pagingData: Flow<PagingData<UiModel>>,
+        onScrollChanged: (UiAction.Scroll) -> Unit
+    ) {
+
+       val stringdata = pagingData.map {
+                pagingData -> pagingData.map { uiModel -> uiModel.toString()
+        }
+        }
+
+        Log.d("PagedListFlow",stringdata.toString())
+        retryButton.setOnClickListener { houselistAdapter.retry() }
+//        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+//                if (dy != 0) onScrollChanged(UiAction.Scroll(currentQuery = ""))
+//            }
+//        })
+        val notLoading = houselistAdapter.loadStateFlow
+            .asRemotePresentationState()
+            .map { it == RemotePresentationState.PRESENTED }
+
+//        val hasNotScrolledForCurrentSearch = uiState
+//            .map { it.hasNotScrolledForCurrentSearch }
+//            .distinctUntilChanged()
+
+//        val shouldScrollToTop = combine(
+//            notLoading,
+//            hasNotScrolledForCurrentSearch,
+//            Boolean::and
+//        )
+//            .distinctUntilChanged()
+
+        lifecycleScope.launch {
+            pagingData.collectLatest(houselistAdapter::submitData)
+        }
+
+//        lifecycleScope.launch {
+//            shouldScrollToTop.collect { shouldScroll ->
+//                if (shouldScroll) recyclerView.scrollToPosition(0)
+//            }
+//
+//        }
+
+        lifecycleScope.launch {
+            houselistAdapter.loadStateFlow.collect { loadState ->
+                // Show a retry header if there was an error refreshing, and items were previously
+                // cached OR default to the default prepend state
+                header.loadState = loadState.mediator
+                    ?.refresh
+                    ?.takeIf { it is LoadState.Error && houselistAdapter.itemCount > 0 }
+                    ?: loadState.prepend
+
+                val isListEmpty = loadState.refresh is LoadState.NotLoading && houselistAdapter.itemCount == 0
+                // show empty list
+                emptyList.isVisible = isListEmpty
+                // Only show the list if refresh succeeds, either from the the local db or the remote.
+                recyclerView.isVisible =  loadState.source.refresh is LoadState.NotLoading || loadState.mediator?.refresh is LoadState.NotLoading
+                // Show loading spinner during initial load or refresh.
+                progressBar.isVisible = loadState.mediator?.refresh is LoadState.Loading
+                // Show the retry state if initial load or refresh fails.
+                retryButton.isVisible = loadState.mediator?.refresh is LoadState.Error && houselistAdapter.itemCount == 0
+                // Toast on any error, regardless of whether it came from RemoteMediator or PagingSource
+                val errorState = loadState.source.append as? LoadState.Error
+                    ?: loadState.source.prepend as? LoadState.Error
+                    ?: loadState.append as? LoadState.Error
+                    ?: loadState.prepend as? LoadState.Error
+                errorState?.let {
+                    Toast.makeText(
+                        requireContext(),
+                        "\uD83D\uDE28 Wooops ${it.error}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.layout_menu, menu)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.action_profile ->{
+                val action = HouseListFragmentDirections.actionHouseListFragmentToProfileDetailFragment()
+                this.findNavController().navigate(action)
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+
+        }
+
+    }
+
 
 
 }

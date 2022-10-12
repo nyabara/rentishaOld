@@ -7,66 +7,123 @@
     android:layout_height="match_parent">
 
 <androidx.constraintlayout.widget.ConstraintLayout
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.AddHouseFragment"
     android:layout_margin="16dp"
     android:padding="16dp">
+    <TextView
+        android:id="@+id/houseTypes_title"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:text="@string/house_types"
+        style="@style/Widget.Rentisha.Textview"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/name_label"
+    <Spinner
+        android:id="@+id/spinnerHouseTypes"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/houseTypes_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/location_address_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/house_name"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Get Location"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintTop_toBottomOf="@id/spinnerHouseTypes"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/name_input"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
-            android:singleLine="true" />
+        tools:text="Address"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/location_address_label"
+
+    <LinearLayout
+        android:id="@+id/checkBoxLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/house_location"
+        android:orientation="horizontal"
         android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/location_address_input"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name_label">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/location_address_input"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textAutoComplete" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/car_parking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/car_parking"
+            android:layout_marginEnd="8dp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/is_available_checkbox"
-        android:layout_width="wrap_content"
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/has_watchman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/has_watchman"/>
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/has_water"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/has_water"/>
+    </LinearLayout>
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/compound_switch"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="@string/has_compound"
         android:layout_marginTop="16dp"
-        android:text="@string/available"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/location_address_label"/>
+        app:layout_constraintTop_toBottomOf="@id/checkBoxLayout"
+        android:layout_marginLeft="8dp"/>
+    <TextView
+        android:id="@+id/electricity_types_title"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:text="@string/electricity_types"
+        style="@style/Widget.Rentisha.Textview"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/compound_switch"/>
+    <Spinner
+        android:id="@+id/spinnerElectricityTypes"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/electricity_types_title"
+        app:layout_constraintTop_toBottomOf="@id/compound_switch" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/description_label"
+        android:id="@+id/electricity_description_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/description"
+        android:hint="@string/electricity_description"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/is_available_checkbox">
+        app:layout_constraintTop_toBottomOf="@id/spinnerElectricityTypes">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/description_input"
+            android:id="@+id/electricity_description_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
@@ -75,77 +132,101 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/url_label"
+        android:id="@+id/other_description_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/house_url"
+        android:hint="@string/other_description"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description_label">
+        app:layout_constraintTop_toBottomOf="@id/electricity_description_label">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/url_input"
+            android:id="@+id/other_description_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textAutoComplete" />
 
     </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/title_label"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/status_title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/house_title"
-        android:layout_marginTop="16dp"
+        android:text="@string/status"
+        style="@style/Widget.Rentisha.Textview"
+        android:importantForAccessibility="no"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/url_label">
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/other_description_label"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/title_input"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textAutoComplete" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/thumbnail_label"
-        android:layout_width="match_parent"
+    <RadioGroup
+        android:id="@+id/status_options"
+        android:checkedButton="@id/option_active"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/house_thumbnail"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_label">
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/status_title"
+        app:layout_constraintTop_toBottomOf="@id/status_title">
+        <RadioButton
+            android:id="@+id/option_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Activate"/>
+        <RadioButton
+            android:id="@+id/option_deactivate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Deactivate"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/thumbnail_input"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textAutoComplete" />
+    </RadioGroup>
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/updated_label"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/upload_image"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/house_updated"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="4dp"
+
+        app:layout_constraintStart_toEndOf="@+id/uploadText"
+        app:layout_constraintTop_toBottomOf="@id/status_options"
+        app:srcCompat="@drawable/ic_attach_file_24" />
+
+    <TextView
+        android:id="@+id/uploadText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:text="Upload Images"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@color/text_black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/thumbnail_label">
+        app:layout_constraintTop_toBottomOf="@id/status_options"
+        tools:text="upload images" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/updated_input"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textAutoComplete" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_images"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:padding="6dp"
+        android:layout_marginTop="8dp"
+        tools:listitem="@layout/list_image"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/upload_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/updated_label"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/upload_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

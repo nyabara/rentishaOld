@@ -1,12 +1,16 @@
 package com.example.rentisha.util
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 
 import com.bumptech.glide.Glide
 import com.example.rentisha.R
-
+import com.example.rentisha.database.DatabaseImage
+import com.example.rentisha.ui.ChildRecyclerViewAdapter
+import com.example.rentisha.viewmodels.RentishaApiStatus
 
 
 /**
@@ -29,46 +33,57 @@ fun setImageUrl(imageView: ImageView, url: String) {
     Glide.with(imageView.context).load(url).into(imageView)
 }
 
-/*@BindingAdapter("imageUrl")
-fun bindImage(imgView: ImageView, imgUrl: String?) {
-    imgUrl?.let {
-        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
-        imgView.load(imgUri) {
-            placeholder(R.drawable.loading_animation)
-            error(R.drawable.ic_broken_image)
+@BindingAdapter("listImage")
+fun bindRecyclerViewChild(recyclerView: RecyclerView,
+                     data: List<DatabaseImage>?) {
 
-        }
-    }
-
-}
-
-@BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView,
-                     data: List<HouseImages>?) {
-    val adapter = recyclerView.adapter as HouseListAdapter
+    val adapter = recyclerView.adapter as ChildRecyclerViewAdapter
     adapter.submitList(data)
+    Log.d("dataiamges",data.toString())
 }
 
-class BindingAdapters {
+//@BindingAdapter("imageUrl")
+//fun bindImage(imgView: ImageView, imgUrl: String?) {
+//    imgUrl?.let {
+//        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
+//        imgView.load(imgUri) {
+//            placeholder(R.drawable.loading_animation)
+//            error(R.drawable.ic_broken_image)
+//
+//        }
+//    }
+//
+//}
 
-}
+//@BindingAdapter("listData")
+//suspend fun bindRecyclerView(recyclerView: RecyclerView,
+//                             data: Flow<PagingData<DatabaseHouse>>?) {
+//    val adapter = recyclerView.adapter as HouseListAdapter
+//    if (data != null) {
+//        data.collect{
+//            adapter.submitData(it)
+//        }
+//    }
+//
+//}
+
 
 //use a Binding adapter for an ImageView, to display icons for the loading and error states
-@BindingAdapter("houseApiStatus")
+@BindingAdapter("rentishaApiStatus")
 fun bindStatus(statusImageView: ImageView,
-               status: HouseApiStatus?) {
+               status: RentishaApiStatus?) {
     when (status) {
-        HouseApiStatus.LOADING -> {
+        RentishaApiStatus.LOADING -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.loading_animation)
         }
-        HouseApiStatus.ERROR -> {
+        RentishaApiStatus.ERROR -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_connection_error)
         }
-        HouseApiStatus.DONE -> {
+        RentishaApiStatus.DONE -> {
             statusImageView.visibility = View.GONE
         }
     }
 }
-*/
+

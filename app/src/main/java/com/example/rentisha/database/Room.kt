@@ -2,19 +2,58 @@ package com.example.rentisha.database
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.paging.PagingSource
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface HouseDao {
-    @Query("select * from databasehouse")
-    fun getHouses(): LiveData<List<DatabaseHouse>>
-
-    @Query("SELECT * from databasehouse WHERE id = :id")
-    fun getItem(id:Long): LiveData<DatabaseHouse>
-
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    fun insertAll( houses: List<DatabaseHouse>)
+//    fun insertRenter(renter: DatabaseRenter)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAllHouseTypes(houseTypes: List<DatabaseHouseTypes>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertHouseImageCrossRefs(houseImageCrossRefs: List<HouseImageCrossRef>)
+
+    @Query("select * from DatabaseHouseTypes")
+    fun getHouseTypes(): List<DatabaseHouseTypes>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAllElectricityTypes(electricityTypes: List<DatabaseElectricityTypes>)
+    @Query("select * from DatabaseElectricityTypes")
+    fun getElectricityTypes():List<DatabaseElectricityTypes>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll( houses: List<DatabaseHouse>)
+    @Query(
+        "SELECT * FROM DatabaseHouse WHERE " +
+                "house_type LIKE :queryString OR other_description LIKE :queryString " +
+                "ORDER BY house_type ASC"
+    )
+    fun houseByName(queryString: String): PagingSource<Int, DatabaseHouse>
+
+    @Transaction
+    @Query("SELECT * FROM DatabaseHouse WHERE houseId = :houseId")
+    fun getHouseWithImages(houseId: Int):  HousewithImages
+
+    @Transaction
+    @Query("SELECT * FROM DatabaseHouse WHERE houseId = :houseId")
+    fun getHouseWithImages1(houseId: Int):  PagingSource<Int,HousewithImages>
+
+
+
+
+
+    @Query("SELECT * from databasehouse WHERE houseId = :id")
+    fun getDatabaseHouse(id: Int): DatabaseHouse
+
+    @Query("DELETE FROM databasehouse")
+    suspend fun clearHouses()
+
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAllImages( images: List<DatabaseImage>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertHouse(house: DatabaseHouse)
@@ -28,9 +67,10 @@ interface HouseDao {
 
 
 
-@Database(entities = [DatabaseHouse::class], version = 2)
+@Database(entities = [DatabaseHouse::class,DatabaseImage::class,DatabaseHouseTypes::class,DatabaseElectricityTypes::class,HouseImageCrossRef::class,RemoteKeys::class], version = 2)
 abstract class HouseDatabase: RoomDatabase() {
     abstract val houseDao: HouseDao
+    abstract val remoteKeysDao:RemoteKeysDao
     companion object{
         @Volatile
         private lateinit var INSTANCE: HouseDatabase

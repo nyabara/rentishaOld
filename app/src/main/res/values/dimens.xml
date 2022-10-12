@@ -2,4 +2,6 @@
 <resources>
     <dimen name="min_text_height">48dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="error_text_size">24sp</dimen>
+    <dimen name="rentisha_name_size">24sp</dimen>
 </resources>
