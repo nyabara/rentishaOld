@@ -128,7 +128,7 @@ class RentishaViewModel(private val rentishaRepository: RentishaRepository,
         }
 
         refreshDataFromRepository()
-        Log.d("houseImages",getHouseImages(1).toString())
+        //Log.d("houseImages",getHouseImages(1).toString())
     }
 
 
